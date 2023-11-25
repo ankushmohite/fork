@@ -1,6 +1,14 @@
-FROM node:14
-WORKDIR /app
-COPY . /app
-RUN npm install
-EXPOSE 80
-CMD ["node", "app.js","runserver","80:80"]
+# Use the official Tomcat image as base
+FROM tomcat:latest
+
+# Remove the default Tomcat applications
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+# Copy the LoginWebApp.war file into the webapps directory
+COPY LoginWebApp.war /usr/local/tomcat/webapps/
+
+# Expose the default Tomcat port
+EXPOSE 8080
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]
