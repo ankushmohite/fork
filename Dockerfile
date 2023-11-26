@@ -5,7 +5,7 @@ FROM tomcat:latest
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy the LoginWebApp.war file into the webapps directory
-COPY .target/LoginWebApp.war /usr/local/tomcat/webapps/
+COPY ./target/LoginWebApp.war /usr/local/tomcat/webapps/
 
 # Expose the default Tomcat port
 EXPOSE 8080
