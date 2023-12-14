@@ -1,5 +1,5 @@
 # Stage 1: Build the LoginWebApp
-FROM maven:latest
+FROM maven:3.8.3-openjdk-11 AS builder
 
 # Set the working directory in the container
 WORKDIR /app
@@ -17,7 +17,7 @@ FROM tomcat:9-jdk11
 WORKDIR /usr/local/tomcat/webapps
 
 # Copy the .war file from the builder stage to the Tomcat webapps directory
-COPY /app/target/LoginWebApp.war/usr/local/tomcat/webapps
+COPY --from=builder /app/target/LoginWebApp.war .
 
 # Expose the port on which Tomcat will run
 EXPOSE 8080
