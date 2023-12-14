@@ -1,16 +1,16 @@
-# Use an official OpenJDK runtime as the base image
-FROM openjdk:11-jre-slim
+# Use the official Tomcat image as base
+FROM tomcat:latest
 
-# Set the working directory in the container
-WORKDIR /app
+# Remove the default Tomcat applications
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy the .war file into the container
-COPY your-login-web-app.war /app/your-login-web-app.war
+# Copy the LoginWebApp.war file into the webapps directory
+COPY ./target/LoginWebApp.war /usr/local/tomcat/webapps/
 
-# Expose the port on which your app will run (adjust as needed)
+# Expose the default Tomcat port
 EXPOSE 8080
 
-# Define the command to run your application
-CMD ["java", "-jar", "your-login-web-app.war"]
+# Start Tomcat
+CMD ["catalina.sh", "run"]
 
 
