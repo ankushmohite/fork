@@ -1,9 +1,6 @@
 # Use the official Tomcat image as base
 FROM tomcat:latest
 
-# Remove the default Tomcat applications
-RUN rm -rf /usr/local/tomcat/webapps/*
-
 # Copy the LoginWebApp.war file into the webapps directory
 COPY ./target/LoginWebApp.war /usr/local/tomcat/webapps/
 
