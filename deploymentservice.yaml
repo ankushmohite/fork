@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: loginwebapp
+  name: game
 spec:
   selector:
     matchLabels:
-      app: loginwebapp
+      app: game
   replicas: 1 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: loginwebapp
+        app: game
     spec:
       containers:
-        - name: loginwebapp
+        - name: game
           image: hemant1111/game:1 # Image that will be used to containers in the cluster
           
           ports:
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: login-svc
+  name: game-svc
 spec:
   selector:
-    app: loginwebapp
+    app: game
   ports:
   - port: 8080
     targetPort: 8080
-    nodePort: 30111
+    nodePort: 30112
   type: NodePort
