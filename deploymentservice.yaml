@@ -22,8 +22,13 @@ spec:
 
 ---
 apiVersion: v1
-kind: Service 
-metadata: 
-  name: loginwebapp
+kind: Service
+metadata:
+  name: login-svc
 spec:
+  selector:
+    app: loginwebapp
+  ports:
+  - port: 8080
+    targetPort: 8080
   type: NodePort
