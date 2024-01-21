@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: loginwebapp
+spec:
+  selector:
+    matchLabels:
+      app: loginwebapp
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: loginwebapp
+    spec:
+      containers:
+        - name: loginwebapp
+          image: ankushmohite/kubernetes # Image that will be used to containers in the cluster
+          
+          ports:
+            - containerPort: 8080 # The port that the container is running on in the cluster
+
+
+---
+apiVersion: v1
+kind: Service 
+metadata: 
+  name: loginwebapp
+spec:
+  type: NodePort
