@@ -14,13 +14,13 @@ spec:
         app: loginwebapp
     spec:
       containers:
-        - name: loginwebapp
+        - name: velapp-1
           image: ankushmohite/loginwebapp # Image that will be used to containers in the cluster
           
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
           volumeMounts:
-            - name: velpod
+            - name: appvolume
               mountPath: "/tmp/hemant"
 
       volumes:
