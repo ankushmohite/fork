@@ -22,7 +22,7 @@ spec:
             - name: velpod
               mountPath: "/tmp/hemant"
 
-    volumes:
+      volumes:
         - name: velpod
           hostPath:
             path: /mnt            
