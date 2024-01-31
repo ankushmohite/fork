@@ -10,6 +10,7 @@ spec:
   replicas: 1 # Number of replicas that will be created for this deployment
   template:
     metadata:
+      name: podlogs
       labels:
         app: loginwebapp
     spec:
