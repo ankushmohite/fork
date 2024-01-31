@@ -24,7 +24,7 @@ spec:
               mountPath: "/tmp/hemant"
 
       volumes:
-        - name: velpod
+        - name: appvolume
           hostPath:
             path: /mnt            
 ---
