@@ -25,9 +25,7 @@ spec:
     volumes:
         - name: velpod
           hostPath:
-            path: /mnt
-                
-
+            path: /mnt            
 ---
 apiVersion: v1
 kind: Service
