@@ -28,7 +28,7 @@ pipeline {
         }
         stage("build image") {
             steps {
-                sh "docker build -t ankushmohite/loginapps ."
+                sh "docker build -t ankushmohite/loginappss ."
             }
         }
         stage('Push image to hub'){
@@ -38,7 +38,7 @@ pipeline {
                     sh 'docker login -u ankushmohite -p ${dockerhubpwd}'
                         
                     }
-                    sh 'docker push ankushmohite/loginapps'
+                    sh 'docker push ankushmohite/loginappss'
                     
                 }
             } 
